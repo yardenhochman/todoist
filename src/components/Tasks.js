@@ -6,6 +6,13 @@ import { collatedTasks } from '../constants';
 import { getTitle, getCollatedTitle, collatedTasksExist } from '../helpers';
 import { useSelectedProjectValue, useProjectsValue } from '../context';
 
+// interface Tasks {
+//   [index: number]: {
+//     id: string;
+//     task: string;
+//   };
+// }
+
 export const Tasks = () => {
   const { selectedProject } = useSelectedProjectValue();
   const { projects } = useProjectsValue();
@@ -17,12 +24,7 @@ export const Tasks = () => {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name;
   }
 
-  if (
-    projects &&
-    projects.length > 0 &&
-    selectedProject &&
-    !collatedTasksExist(selectedProject)
-  ) {
+  if (projects && projects.length > 0 && selectedProject && !collatedTasksExist(selectedProject)) {
     projectName = getTitle(projects, selectedProject).name;
   }
 

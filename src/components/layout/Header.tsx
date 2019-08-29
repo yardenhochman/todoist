@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { FaPizzaSlice } from 'react-icons/fa';
 import { AddTask } from '../AddTask';
 
-export const Header = ({ darkMode, setDarkMode }) => {
+interface Props {
+  darkMode: boolean;
+  setDarkMode(params: boolean): void;
+}
+
+export const Header: React.FC<Props> = ({ darkMode, setDarkMode }) => {
   const [shouldShowMain, setShouldShowMain] = useState(false);
   const [showQuickAddTask, setShowQuickAddTask] = useState(false);
 
@@ -46,12 +51,7 @@ export const Header = ({ darkMode, setDarkMode }) => {
         </div>
       </nav>
 
-      <AddTask
-        showAddTaskMain={false}
-        shouldShowMain={shouldShowMain}
-        showQuickAddTask={showQuickAddTask}
-        setShowQuickAddTask={setShowQuickAddTask}
-      />
+      <AddTask showAddTaskMain={false} {...{ shouldShowMain, showQuickAddTask, setShowQuickAddTask }} />
     </header>
   );
 };

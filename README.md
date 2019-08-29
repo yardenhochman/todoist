@@ -1,1 +1,1 @@
-Typescript version of this project: https://github.com/karlhadwen/todoist
+Typescript version of this project: [Todoist](https://github.com/karlhadwen/todoist)
